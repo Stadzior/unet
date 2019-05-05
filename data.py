@@ -53,6 +53,7 @@ def trainGenerator(batch_size,train_path,image_folder,mask_folder,aug_dict,image
     use the same seed for image_datagen and mask_datagen to ensure the transformation for image and mask is the same
     if you want to visualize the results of generator, set save_to_dir = "your path"
     '''
+    save_to_dir='data/membrane/train/aug'
     image_datagen = ImageDataGenerator(**aug_dict)
     mask_datagen = ImageDataGenerator(**aug_dict)
     image_generator = image_datagen.flow_from_directory(
