@@ -1,3 +1,4 @@
 *.hdf5
 unet_membrane.hdf5
 .vscode
+/data/membrane/train/aug
