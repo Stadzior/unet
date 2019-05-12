@@ -11,12 +11,12 @@ data_gen_args = dict(rotation_range=0.2,
                     zoom_range=0.05,
                     horizontal_flip=True,
                     fill_mode='nearest')
-myGene = trainGenerator(2,'data/train','image','label',data_gen_args,save_to_dir = None)
+trainGene = trainGenerator(2,'data/train','image','label',data_gen_args,save_to_dir = None)
 
 model = unet()
 model_checkpoint = ModelCheckpoint('unet.hdf5', monitor='loss',verbose=1, save_best_only=True)
 print("before fit generator")
-model.fit_generator(myGene,steps_per_epoch=200,epochs=2,callbacks=[model_checkpoint])
+model.fit_generator(trainGene,steps_per_epoch=50,epochs=3,callbacks=[model_checkpoint])
 print("after fit generator")
 
 testGene = testGenerator("data/test", 1)
